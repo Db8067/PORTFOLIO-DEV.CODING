@@ -21,7 +21,7 @@ header{
     top: 0;
     left: 0;
     width: 100%;
-    padding: 15px 200px;
+    padding: 10px 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -594,8 +594,142 @@ video {
     color: #666;
 }
 
+/* Testimonials Section */
+.testimonials-section {
+    padding: 80px 20px;
+    background-color: #010129cc;
+    text-align: center;
+}
+
+.testimonials-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #f9faff;
+}
+
+.testimonials-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Testimonial Card */
+/* Testimonial Card */
+.testimonial-card {
+    width: 300px; /* Fixed width for each card */
+    padding: 20px;
+    flex: 0 0 auto; /* Prevent flex shrinking */
+    border-radius: 20px; /* Rounded corners */
+    background-color: #1b1930; /* Dark background */
+    position: relative;
+    overflow: hidden; /* Ensure the gradient doesn't overflow */
+    z-index: 1; /* Ensure the card is above the pseudo-elements */
+    
+}
+
+/* Gradient Border Animation */
+@property --angle {
+    syntax: "<angle>";
+    inherits: true;
+    initial-value: 0deg;
+}
+
+.testimonial-card::after,
+.testimonial-card::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    --angle: 0deg;
+    background-image: conic-gradient(
+        from var(--angle), #ea2dd8, #001bf1, #ea2dd8
+    );
+    animation: autoRotate 2s linear infinite;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    padding: 5px;
+    box-sizing: unset;
+}
+
+.testimonial-card::after {
+    filter: blur(60px); /* Blur effect for the gradient */
+}
+
+/* Animation for Gradient Rotation */
+@keyframes autoRotate {
+    to {
+        --angle: 360deg;
+    }
+}
+
+/* Testimonial Content */
+.testimonial-content {
+    text-align: left;
+    position: relative;
+    z-index: 2; /* Ensure content is above the gradient */
+}
+
+.testimonial-text {
+    font-size: 1rem;
+    color: #fff; /* Light text for dark background */
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.testimonial-author {
+    font-size: 0.9rem;
+    color: #e4f0fe; /* Accent color for author */
+    font-weight: bold;
+}
+
+/* Hover Effect */
+.testimonial-card:hover {
+    transform: scale(1.05); /* Slightly enlarge the card */
+    transition: transform 0.3s ease;
+}
+
+.cta-section {
+    text-align: center;
+    background-color: #edf4fbe9;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cta-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.cta-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+} 
+
+ #ctaButton {
+    padding: 15px 30px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+} 
+
+#ctaButton:hover {
+    background-color: #0056b3;
+}
+
 
 /* Contact */
+
 
 .contact .content{
     display: flex;
@@ -629,6 +763,7 @@ video {
     color: #3a6cf4;
     font-size: 4em;
     text-align: center;
+    flex-direction: column;
     transition: transform 0.5s ease;
   }
   
@@ -652,59 +787,6 @@ video {
     font-weight: 500;
   }
   
-  .contact-form{
-    background: #fff;
-    max-width: 600px;
-    margin-top: 50px;
-    padding: 50px;
-    border-radius: 10px;
-    box-shadow: 0 5px 25px rgba(1 1 1 / 15%);
-  }
-  
-  .contact-form h3{
-    color: #111;
-    font-size: 1.6em;
-    font-weight: 600;
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  
-  .contact-form .input-box{
-    position: relative;
-    width: 100%;
-    margin-bottom: 20px;
-  }
-  
-  .contact-form .input-box input,
-  .contact-form .input-box textarea{
-    color: #111;
-    width: 100%;
-    padding: 10px;
-    font-size: 1em;
-    font-weight: 400;
-    outline: none;
-    border: 1px solid #111;
-    border-radius: 5px;
-    resize: none;
-  }
-  
-  .contact-form .input-box .send-btn{
-    color: #fff;
-    background: #3a6cf4;
-    display: inline-block;
-    font-size: 1.1em;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    width: 100%;
-    border: none;
-    cursor: pointer;
-    transition: 0.5s ease;
-  }
-  
-  .contact-form .input-box .send-btn:hover{
-    background: #235bf6;
-  }
 
   /* Footer */
   

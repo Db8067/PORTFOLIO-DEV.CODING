@@ -44,4 +44,30 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+document.getElementById('ctaButton').addEventListener('click', function() {
+    window.open('https://www.instagram.com/devanshb2125?igsh=MWhucG8yZWhleDc3Yw%3D%3D&utm_source=qr', '_blank');
+});
 
+const testimonialsContainer = document.querySelector('.testimonials-container');
+
+let scrollSpeed = 1; // Adjust scroll speed
+
+function scrollTestimonials() {
+    if (testimonialsContainer.scrollLeft >= testimonialsContainer.scrollWidth / 2) {
+        testimonialsContainer.scrollLeft = 0; // Reset scroll position
+    } else {
+        testimonialsContainer.scrollLeft += scrollSpeed; // Scroll horizontally
+    }
+}
+
+// Start scrolling animation
+setInterval(scrollTestimonials, 20);
+
+// Pause scrolling on hover
+testimonialsContainer.addEventListener('mouseenter', () => {
+    scrollSpeed = 0; // Stop scrolling
+});
+
+testimonialsContainer.addEventListener('mouseleave', () => {
+    scrollSpeed = 1; // Resume scrolling
+});
